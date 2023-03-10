@@ -32,8 +32,8 @@ const TableCoins = () => {
       <table className="table table-dark mt-4 table-hover">
 
         <thead>
-          <tr className="">
-            { TITLES.map((title) => <td key={title}>{title}</td>) }
+          <tr>
+            { TITLES.map((title) => <td key={title} className="fw-bold">{title}</td>) }
           </tr>
         </thead>
 
