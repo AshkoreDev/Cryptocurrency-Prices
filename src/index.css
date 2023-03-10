@@ -1,4 +1,13 @@
 
+body::-webkit-scrollbar {
+  width: 4px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 4px;
+}
+
 body {
   color: #fff;
   background: #141414;
