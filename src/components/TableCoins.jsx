@@ -4,15 +4,15 @@ import CoinRow from './CoinRow.jsx';
 
 const TITLES = ['#', 'Coin', 'Price', 'Price Change', '24h Volume'];
 
-const TableCoins = () => {
+const TableCoins = ({ search }) => {
 
   const [loading, setLoading] = useState(false);
   const [coins, setCoins] = useState([]);
 
-  // const filteredCoins = coins.filter(
-  //   (coin) => 
-  //     coin.name.toLowerCase().includes(search.toLowerCase()) || 
-  //     coin.symbol.toLowerCase().includes(search.toLowerCase()));
+  const filteredCoins = coins.filter(
+    (coin) => 
+      coin.name.toLowerCase().includes(search.toLowerCase()) || 
+      coin.symbol.toLowerCase().includes(search.toLowerCase()));
 
   console.log(coins);
   useEffect(() => {
@@ -41,7 +41,7 @@ const TableCoins = () => {
           { 
             loading 
               ? <h2>cargando...</h2>
-              : coins.map((coin, index) => <CoinRow coin={coin} key={coin.name} index={index + 1}/>)
+              : filteredCoins.map((coin, index) => <CoinRow coin={coin} key={coin.name} index={index + 1}/>)
           }
         </tbody>
 

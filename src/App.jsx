@@ -14,7 +14,7 @@ export const App = () => {
       
       <div className="row">
         <SearchInput setSearch={setSearch}/>
-        <TableCoins/>
+        <TableCoins  search={search}/>
       </div>
     </section>
 
