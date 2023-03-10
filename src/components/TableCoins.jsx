@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getCoins } from './../services/getCoins.jsx';
 import CoinRow from './CoinRow.jsx';
+import Spinner from './Spinner.jsx';
 
 const TITLES = ['#', 'Coin', 'Price', 'Price Change', '24h Volume'];
 
@@ -40,7 +41,7 @@ const TableCoins = ({ search }) => {
         <tbody>
           { 
             loading 
-              ? <h2>cargando...</h2>
+              ? <Spinner/>
               : filteredCoins.map((coin, index) => <CoinRow coin={coin} key={coin.name} index={index + 1}/>)
           }
         </tbody>

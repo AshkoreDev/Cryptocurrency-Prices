@@ -8,3 +8,7 @@ body {
   width: 20px;
   height: 20px;
 }
+
+.spinner-border {
+  margin-left: 60px;
+}
