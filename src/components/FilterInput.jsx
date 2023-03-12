@@ -6,9 +6,9 @@ const FilterInput = ({ title, array, action }) => {
 
   return (
 
-   <select className="rounded mx-2 p-1 bg-dark text-light border-0" title={title} key={title} onChange={HandleChange}>
+   <select className="rounded mx-2 p-1 bg-dark text-light border-0" title={title} onChange={HandleChange}>
      {
-       array.map(item => <option value={item}>{item}</option>)
+       array.map(item => <option value={item} key={item}>{item}</option>)
      }
    </select>
 
