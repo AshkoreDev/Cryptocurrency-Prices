@@ -1,24 +1,19 @@
 import axios from 'axios';
 
-export function getCoins() {
+export async function getCoins({ results, currency }) {
 
-  const API = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1`;
+  const API = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=${results}&page=1`;
 
-  
-  return axios.get(API)
-    .then(res => {
-      
-      const { data = [] } = res;
+  const res = await axios.get(API);
+  const { data = [] } = res;
 
-      if(Array.isArray(data)) {
+  if (Array.isArray(data)) {
 
-        return data.map((coin) => {
+    return data.map((coin) => {
 
-          const { image, name, symbol, current_price, price_change_percentage_24h, total_volume } = coin;
+      const { image, name, symbol, current_price, price_change_percentage_24h, total_volume } = coin;
 
-          return { image, name, symbol, current_price, price_change_percentage_24h, total_volume };
-        })
-
-      }
+      return { image, name, symbol, current_price, price_change_percentage_24h, total_volume };
     });
+  }
 };

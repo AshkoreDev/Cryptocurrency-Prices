@@ -1,10 +1,14 @@
 import React from 'react';
+import FilterInput from './FilterInput.jsx';
 
-const SearchInput = ({ setSearch }) => {
-  
+const resultsArray = [10, 25, 50, 100];
+const currencyArray = ['usd', 'eur', 'jpy', 'btc', 'eth', 'bnb'];
+
+const SearchInput = ({ updateSearch, updateResults, updateCurrency }) => {
+
   const handleSubmit = (e) => e.preventDefault();
 
-  const handleSearch = (e) => setSearch(e.target.value);
+  const handleSearch = (e) => updateSearch(e.target.value);
 
   return (
 
@@ -15,6 +19,10 @@ const SearchInput = ({ setSearch }) => {
         placeholder="Search a Coin"
         className="form-control bg-dark text-light border-0 mt-4 text-center text-uppercase"
       />
+      <div className="my-4 text-center">
+        <FilterInput title="Results" array={resultsArray} action={updateResults}/>
+        <FilterInput title="Currency" array={currencyArray} action={updateCurrency}/>
+      </div>
     </form>
 
   );

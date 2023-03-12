@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { useForm } from './hooks/useForm.jsx';
 import TableCoins from './components/TableCoins.jsx';
 import SearchInput from './components/SearchInput.jsx';
 
 export const App = () => {
 
-  const [search, setSearch] = useState('');
+  const { search, results, currency, updateSearch, updateResults, updateCurrency } = useForm();
 
   return (
 
     <section className="container">
       
       <div className="row">
-        <SearchInput setSearch={setSearch}/>
-        <TableCoins  search={search}/>
+        <SearchInput updateSearch={updateSearch} updateResults={updateResults} updateCurrency={updateCurrency}/>
+        <TableCoins search={search}  results={results} currency={currency}/>
       </div>
     </section>
 

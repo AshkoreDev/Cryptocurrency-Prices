@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { getCoins } from './../services/getCoins.jsx';
 import CoinRow from './CoinRow.jsx';
 import Spinner from './Spinner.jsx';
+import { getCoins } from './../services/getCoins.jsx';
 
 const TITLES = ['#', 'Coin', 'Price', 'Price Change', '24h Volume'];
 
-const TableCoins = ({ search }) => {
+const TableCoins = ({ search, results, currency}) => {
 
   const [loading, setLoading] = useState(false);
   const [coins, setCoins] = useState([]);
@@ -14,23 +14,26 @@ const TableCoins = ({ search }) => {
     (coin) => 
       coin.name.toLowerCase().includes(search.toLowerCase()) || 
       coin.symbol.toLowerCase().includes(search.toLowerCase()));
-
-  console.log(coins);
+  
   useEffect(() => {
 
     setLoading(true);
-    getCoins()
+
+    getCoins({ results, currency })
       .then((coins) => {
+
         setCoins(coins);
         setLoading(false);
       });
 
-  }, [setCoins]);
+  }, [setCoins, results, currency]);
 
+  console.log({ search, results, currency }); 
+	
   return (
 
     <>
-      <table className="table table-dark mt-4 table-hover">
+      <table className="table table-dark mt-2 table-hover">
 
         <thead>
           <tr>
