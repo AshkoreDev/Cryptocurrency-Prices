@@ -13,9 +13,15 @@ const CoinRow = ({ coin, index, currency}) => {
         <span>{name}</span>
         <span className="ms-4 text-muted text-uppercase">{symbol}</span>
       </td>
-      <td className="text-uppercase">{current_price +' '+ currency}</td>
+      <td className="text-uppercase">
+        {current_price}
+        <span className="text-uppercase text-muted mx-2">{currency}</span>
+      </td>
       <td className={price_change_percentage_24h > 0 ? `text-success` : 'text-danger'}>{`${price_change_percentage_24h.toFixed(1)}%`}</td>
-      <td className="text-uppercase">{total_volume +' '+ currency}</td>
+      <td>
+        {total_volume} 
+        <span className="text-uppercase text-muted mx-2">{currency}</span>
+      </td>
     </tr>
 
   );
