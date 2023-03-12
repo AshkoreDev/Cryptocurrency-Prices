@@ -45,7 +45,7 @@ const TableCoins = ({ search, results, currency}) => {
           { 
             loading 
               ? <Spinner/>
-              : filteredCoins.map((coin, index) => <CoinRow coin={coin} key={coin.name} index={index + 1}/>)
+              : filteredCoins.map((coin, index) => <CoinRow coin={coin} key={coin.name} index={index + 1} currency={currency}/>)
           }
         </tbody>
 

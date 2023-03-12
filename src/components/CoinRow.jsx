@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CoinRow = ({ coin, index }) => {
+const CoinRow = ({ coin, index, currency}) => {
 
   const { image, name, symbol, current_price, price_change_percentage_24h, total_volume } = coin;
 
@@ -13,9 +13,9 @@ const CoinRow = ({ coin, index }) => {
         <span>{name}</span>
         <span className="ms-4 text-muted text-uppercase">{symbol}</span>
       </td>
-      <td>{`${current_price} US$`}</td>
+      <td className="text-uppercase">{current_price +' '+ currency}</td>
       <td className={price_change_percentage_24h > 0 ? `text-success` : 'text-danger'}>{`${price_change_percentage_24h.toFixed(1)}%`}</td>
-      <td>{`${total_volume} US$`}</td>
+      <td className="text-uppercase">{total_volume +' '+ currency}</td>
     </tr>
 
   );
