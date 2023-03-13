@@ -11,16 +11,16 @@ const CoinRow = ({ coin, index, currency}) => {
       <td>
         <img src={image} alt={name} width="20" height="20" className="icon-img img-fluid me-4"/>
         <span>{name}</span>
-        <span className="ms-4 text-muted text-uppercase">{symbol}</span>
+        <span className="ms-2 text-muted text-uppercase">{symbol}</span>
       </td>
       <td className="text-uppercase">
         {current_price}
-        <span className="text-uppercase text-muted mx-2">{currency}</span>
+        <span className="text-uppercase text-muted ms-2">{currency}</span>
       </td>
       <td className={price_change_percentage_24h > 0 ? `text-success` : 'text-danger'}>{`${price_change_percentage_24h.toFixed(1)}%`}</td>
       <td>
         {total_volume} 
-        <span className="text-uppercase text-muted mx-2">{currency}</span>
+        <span className="text-uppercase text-muted ms-2">{currency}</span>
       </td>
     </tr>
 
