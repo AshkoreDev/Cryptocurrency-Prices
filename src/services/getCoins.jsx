@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export async function getCoins({ results, currency }) {
+export async function getCoins({ results, currency, page }) {
 
-  const API = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=${results}&page=1`;
+  const API = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=${results}&page=${page}`;
 
   const res = await axios.get(API);
   const { data = [] } = res;

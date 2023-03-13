@@ -5,7 +5,7 @@ import { getCoins } from './../services/getCoins.jsx';
 
 const TITLES = ['#', 'Coin', 'Price', 'Price Change', '24h Volume'];
 
-const TableCoins = ({ search, results, currency}) => {
+const TableCoins = ({ search, results, currency, page }) => {
 
   const [loading, setLoading] = useState(false);
   const [coins, setCoins] = useState([]);
@@ -19,16 +19,14 @@ const TableCoins = ({ search, results, currency}) => {
 
     setLoading(true);
 
-    getCoins({ results, currency })
+    getCoins({ results, currency, page })
       .then((coins) => {
 
         setCoins(coins);
         setLoading(false);
       });
 
-  }, [setCoins, results, currency]);
-
-  console.log({ search, results, currency }); 
+  }, [setCoins, results, currency, page]);
 	
   return (
 
