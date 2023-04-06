@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CoinRow from './CoinRow.jsx';
 import Spinner from './Spinner.jsx';
-import { getCoins } from './../services/getCoins.jsx';
+import { getData } from './../services/getData.jsx';
 
 const TITLES = ['#', 'Coin', 'Price', 'Price Change', '24h Volume'];
 
@@ -19,7 +19,7 @@ const TableCoins = ({ search, results, currency, page }) => {
 
     setLoading(true);
 
-    getCoins({ results, currency, page })
+    getData({ results, currency, page })
       .then((coins) => {
 
         setCoins(coins);
@@ -30,7 +30,7 @@ const TableCoins = ({ search, results, currency, page }) => {
 	
   return (
 
-    <>
+    <div className="table-responsive">
       <table className="table table-dark mt-2 table-hover">
 
         <thead>
@@ -48,8 +48,8 @@ const TableCoins = ({ search, results, currency, page }) => {
         </tbody>
 
       </table>
-    </>
-
+    </div>
+  
   );
 };
 

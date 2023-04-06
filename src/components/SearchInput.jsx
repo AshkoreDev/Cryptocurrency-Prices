@@ -12,18 +12,20 @@ const SearchInput = ({ updateSearch, updateResults, updateCurrency }) => {
 
   return (
 
-    <form onSubmit={handleSubmit} className="mt-2 mb-4">
-      <input 
-        type="text" 
-        onChange={handleSearch} 
-        placeholder="Search a Coin"
-        className="form-control bg-dark text-light border-0 my-4 text-center text-uppercase"
-      />
-      <div className="text-center">
-        <FilterInput title="Results" array={resultsArray} action={updateResults}/>
-        <FilterInput title="Currency" array={currencyArray} action={updateCurrency}/>
-      </div>
-    </form>
+    <div className="col-sm-2 col-md-4 mx-auto">
+      <form onSubmit={handleSubmit} className="mt-2 my-4">
+        <input 
+          type="text" 
+          onChange={handleSearch} 
+          placeholder="Search a Coin"
+          className="form-control bg-dark text-light border-0 my-4 text-center text-uppercase"
+        />
+        <div className="text-center">
+          <FilterInput title="Results" array={resultsArray} action={updateResults}/>
+          <FilterInput title="Currency" array={currencyArray} action={updateCurrency}/>
+        </div>
+      </form>
+    </div>
 
   );
 };

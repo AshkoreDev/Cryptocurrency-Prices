@@ -15,10 +15,13 @@ export const App = () => {
     <section className="container">
       
       <div className="row">
-        <SearchInput updateSearch={updateSearch} updateResults={updateResults} updateCurrency={updateCurrency}/>
-        <TableCoins search={search} results={results} currency={currency} page={page}/>
         
+        <SearchInput updateSearch={updateSearch} updateResults={updateResults} updateCurrency={updateCurrency}/>
+        
+        <TableCoins search={search} results={results} currency={currency} page={page}/>
+         
       </div>
+
       <PageButtons setPage={setPage} page={page}/>
     </section>
 
