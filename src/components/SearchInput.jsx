@@ -1,10 +1,9 @@
-import React from 'react';
 import FilterInput from './FilterInput.jsx';
 
 const resultsArray = [10, 25, 50, 100];
 const currencyArray = ['usd', 'eur', 'jpy', 'btc', 'eth', 'bnb'];
 
-const SearchInput = ({ updateSearch, updateResults, updateCurrency }) => {
+function SearchInput({ updateSearch, updateResults, updateCurrency }) {
 
   const handleSubmit = (e) => e.preventDefault();
 

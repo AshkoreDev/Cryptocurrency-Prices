@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import CoinRow from './CoinRow.jsx';
 import Spinner from './Spinner.jsx';
 import { getData } from './../services/getData.jsx';
 
 const TITLES = ['#', 'Coin', 'Price', 'Price Change', '24h Volume'];
 
-const TableCoins = ({ search, results, currency, page }) => {
+function TableCoins({ search, results, currency, page }) {
 
   const [loading, setLoading] = useState(false);
   const [coins, setCoins] = useState([]);
@@ -41,7 +41,7 @@ const TableCoins = ({ search, results, currency, page }) => {
 
         <tbody>
           { 
-            loading 
+            (loading) 
               ? <Spinner/>
               : filteredCoins.map((coin, index) => <CoinRow coin={coin} key={coin.name} index={index + 1} currency={currency}/>)
           }

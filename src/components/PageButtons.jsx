@@ -1,6 +1,5 @@
-import React from 'react';
 
-const PageButtons = ({ setPage, page }) => {
+function PageButtons({ setPage, page }) {
 
   const handlePrev = () => setPage(page - 1);
   const handleNext = () => setPage(page + 1);

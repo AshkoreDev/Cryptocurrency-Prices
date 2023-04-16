@@ -1,6 +1,5 @@
-import React from 'react';
 
-const CoinRow = ({ coin, index, currency}) => {
+function CoinRow({ coin, index, currency }) {
 
   const { image, name, symbol, current_price, price_change_percentage_24h, total_volume } = coin;
 
